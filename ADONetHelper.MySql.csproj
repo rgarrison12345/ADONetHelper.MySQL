@@ -3,12 +3,12 @@
     <TargetFrameworks>net45;net461;netstandard1.3;netstandard2.0;netcoreapp2.1;</TargetFrameworks>
     <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageLicenseUrl>https://github.com/rgarrison12345/ADONetHelper/blob/master/LICENSE.md</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/rgarrison12345/ADONetHelper/tree/master/ADONetHelper.MySql</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/rgarrison12345/ADONetHelper/tree/master/ADONetHelper.MySql</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/rgarrison12345/ADONetHelper.MySQL/blob/master/LICENSE.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/rgarrison12345/ADONetHelper.MySQL</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rgarrison12345/ADONetHelper.MySQL.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>1.9.2</Version>
+    <Version>1.9.3</Version>
     <PackageTags>MySQL MariaDb Percona Server Amazon Aurora MySQLConnector ORM ADO.NET ADO SQL .NET Database RDBMS Generic DAL ANSI</PackageTags>
     <Copyright>Copyright © Robert Garrison 2018</Copyright>
     <Authors>Robert Garrison</Authors>
@@ -19,7 +19,7 @@
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
     <Description>Extends ADONetHelper library to MySQL MariaDb Percona Server Amazon Aurora</Description>
-    <PackageReleaseNotes>Updating to MySqlConnector 0.45.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Updating to MySqlConnector 0.45.1</PackageReleaseNotes>
     <AssemblyName>ADONetHelper.MySql</AssemblyName>
     <RootNamespace>ADONetHelper.MySql</RootNamespace>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ADONetHelper.MySql.xml</DocumentationFile>
