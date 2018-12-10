@@ -46,7 +46,7 @@
     <None Include="LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
     <None Include="README.md" PacK="true" PackagePath="README.md" />
     <None Include="CONTRIBUTING.md" PacK="true" PackagePath="CONTRIBUTING.md" />
-    <PackageReference Include="MySqlConnector" Version="0.47.1" />
-    <PackageReference Include="ADONetHelper" version="3.1.2" />
+    <PackageReference Include="MySqlConnector" Version="0.48.0" />
+    <PackageReference Include="ADONetHelper" version="3.1.3" />
   </ItemGroup>
 </Project>
