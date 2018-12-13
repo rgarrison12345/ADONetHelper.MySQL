@@ -18,7 +18,7 @@
     <PackageId>ADONetHelper.MySql</PackageId>
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
-    <Description>Extends ADONetHelper library to MySQL MariaDb Percona Server Amazon Aurora</Description>
+    <Description>Extends ADONetHelper library to MySQL, MariaDb, Percona Server, Amazon Aurora, Azure Database for MySQL</Description>
     <PackageReleaseNotes>Updating to MySqlConnector 0.48.2</PackageReleaseNotes>
     <AssemblyName>ADONetHelper.MySql</AssemblyName>
     <RootNamespace>ADONetHelper.MySql</RootNamespace>
