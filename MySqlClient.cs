@@ -36,12 +36,36 @@ namespace ADONetHelper.MySql
     /// <seealso cref="DbClient"/>
     public class MySqlClient : DbClient
     {
-        #region Fields/Properties
-        /// <summary>
-        /// Returns the id of the server thread the <see cref="MySqlConnection"/> is executing on
-        /// </summary>
-        /// <returns>Returns the id of the server thread the <see cref="MySqlConnection"/> is executing on as an <see cref="int"/></returns>
-        public int ServerThread
+		#region Events
+		/// <summary>
+		/// Occurs when MySql returns a warning or informational message
+		/// </summary>
+		public event MySqlInfoMessageEventHandler InfoMessage
+		{
+			add
+			{
+				//Get an exclusive lock first
+				lock (this.ExecuteSQL.Connection)
+				{
+					this.Connection.InfoMessage += value;
+				}
+			}
+			remove
+			{
+				//Get an exclusive lock first
+				lock (this.ExecuteSQL.Connection)
+				{
+					this.Connection.InfoMessage -= value;
+				}
+			}
+		}
+		#endregion
+		#region Fields/Properties
+		/// <summary>
+		/// Returns the id of the server thread the <see cref="MySqlConnection"/> is executing on
+		/// </summary>
+		/// <returns>Returns the id of the server thread the <see cref="MySqlConnection"/> is executing on as an <see cref="int"/></returns>
+		public int ServerThread
         {
             get
             {
