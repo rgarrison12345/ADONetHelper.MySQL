@@ -183,7 +183,7 @@ namespace ADONetHelper.MySql
         public async Task<MySqlTransaction> BeginTransactionAsync(IsolationLevel level)
         {
             //Await this task
-            return await this.Connection.BeginTransactionAsync(level);
+            return await this.BeginTransactionAsync(level, default(CancellationToken));
         }
         /// <summary>
         /// Begins the transaction asynchronously.
@@ -204,7 +204,7 @@ namespace ADONetHelper.MySql
         public async Task<MySqlTransaction> BeginTransactionAsync(IsolationLevel level, CancellationToken token)
         {
             //Await this task
-            return await this.Connection.BeginTransactionAsync(level, token);
+            return await this.BeginTransactionAsync(level, token);
         }
         /// <summary>
         /// Changes the database in the current <see cref="MySqlConnection"/> context to a new database by <paramref name="name"/> asynchronously
@@ -214,7 +214,7 @@ namespace ADONetHelper.MySql
         public async Task ChangeDatabaseAsync(string name)
         {
             //Await this task
-            await this.Connection.ChangeDatabaseAsync(name);
+            await this.Connection.ChangeDatabaseAsync(name, default(CancellationToken));
         }
         /// <summary>
         /// Changes the database in the current <see cref="MySqlConnection"/> context to a new database by <paramref name="name"/> asynchronously
