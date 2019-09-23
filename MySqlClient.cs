@@ -1,6 +1,6 @@
 ﻿#region Licenses
 /*MIT License
-Copyright(c) 2018
+Copyright(c) 2019
 Robert Garrison
 
 Permission Is hereby granted, free Of charge, To any person obtaining a copy
@@ -59,13 +59,13 @@ namespace ADONetHelper.MySql
 				}
 			}
 		}
-		#endregion
-		#region Fields/Properties
-		/// <summary>
-		/// Returns the id of the server thread the <see cref="MySqlConnection"/> is executing on
-		/// </summary>
-		/// <returns>Returns the id of the server thread the <see cref="MySqlConnection"/> is executing on as an <see cref="int"/></returns>
-		public int ServerThread
+        #endregion
+        #region Fields/Properties
+        /// <summary>
+        /// Returns the id of the server thread the <see cref="MySqlConnection"/> is executing on
+        /// </summary>
+        /// <returns>Returns the id of the server thread the <see cref="MySqlConnection"/> is executing on as an <see cref="int"/></returns>
+        public int ServerThread
         {
             get
             {
@@ -125,7 +125,6 @@ namespace ADONetHelper.MySql
         {
         }
         #endregion
-        #region Utility Methods
         #region Synchronous
         /// <summary>
         /// Gets an instance of <see cref="MySqlBulkLoader"/> using the current <see cref="MySqlConnection"/>
@@ -150,50 +149,22 @@ namespace ADONetHelper.MySql
         /// <summary>
         /// Determines whether the the current <see cref="MySqlConnection"/> to mysql server is valid
         /// </summary>
-        /// <returns>Returns <c>true</c> if the connection to mysql server is valid</returns>
-        public async Task<bool> PingAsync()
-        {
-            //Return this back to the caller
-            return await this.Connection.PingAsync();
-        }
-        /// <summary>
-        /// Determines whether the the current <see cref="MySqlConnection"/> to mysql server is valid
-        /// </summary>
         /// <param name="token">Structure that propogates a notification that an operation should be cancelled</param>
         /// <returns>Returns <c>true</c> if the connection to mysql server is valid</returns>
-        public async Task<bool> PingAsync(CancellationToken token)
+        public async Task<bool> PingAsync(CancellationToken token = default)
         {
             //Return this back to the caller
-            return await this.Connection.PingAsync(token);
-        }
-        /// <summary>
-        /// Begins the transaction asynchronously.
-        /// </summary>
-        /// <returns></returns>
-        public async Task<MySqlTransaction> BeginTransactionAsync()
-        {
-            //Await this task
-            return await this.Connection.BeginTransactionAsync();
-        }
-        /// <summary>
-        /// Gets the transaction asynchronously.
-        /// </summary>
-        /// <param name="level">The level.</param>
-        /// <returns></returns>
-        public async Task<MySqlTransaction> BeginTransactionAsync(IsolationLevel level)
-        {
-            //Await this task
-            return await this.BeginTransactionAsync(level, default(CancellationToken));
+            return await this.Connection.PingAsync(token).ConfigureAwait(false);
         }
         /// <summary>
         /// Begins the transaction asynchronously.
         /// </summary>
         /// <param name="token">Structure that propogates a notification that an operation should be cancelled</param>
         /// <returns></returns>
-        public async Task<MySqlTransaction> BeginTransactionAsync(CancellationToken token)
-        { 
+        public async ValueTask<MySqlTransaction> BeginTransactionAsync(CancellationToken token = default)
+        {
             //Await this task
-            return await this.Connection.BeginTransactionAsync(token);
+            return await this.Connection.BeginTransactionAsync(token).ConfigureAwait(false);
         }
         /// <summary>
         /// Begins the transaction asynchronously.
@@ -201,20 +172,17 @@ namespace ADONetHelper.MySql
         /// <param name="level">The level.</param>
         /// <param name="token">Structure that propogates a notification that an operation should be cancelled</param>
         /// <returns></returns>
-        public async Task<MySqlTransaction> BeginTransactionAsync(IsolationLevel level, CancellationToken token)
+        public async ValueTask<MySqlTransaction> BeginTransactionAsync(IsolationLevel level, CancellationToken token = default)
         {
             //Await this task
-            return await this.BeginTransactionAsync(level, token);
+            return await this.Connection.BeginTransactionAsync(level, token).ConfigureAwait(false);
         }
         /// <summary>
-        /// Changes the database in the current <see cref="MySqlConnection"/> context to a new database by <paramref name="name"/> asynchronously
+        /// Closes the connection asynchronously.
         /// </summary>
-        /// <param name="name">The name of the database the current connection will be changing to as a <see cref="string"/></param>
-        /// <returns></returns>
-        public async Task ChangeDatabaseAsync(string name)
+        public async Task CloseAsync()
         {
-            //Await this task
-            await this.Connection.ChangeDatabaseAsync(name, default(CancellationToken));
+            await this.Connection.CloseAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Changes the database in the current <see cref="MySqlConnection"/> context to a new database by <paramref name="name"/> asynchronously
@@ -222,12 +190,11 @@ namespace ADONetHelper.MySql
         /// <param name="name">The name of the database the current connection will be changing to as a <see cref="string"/></param>
         /// <param name="token">Structure that propogates a notification that an operation should be cancelled</param>
         /// <returns></returns>
-        public async Task ChangeDatabaseAsync(string name, CancellationToken token)
+        public async Task ChangeDatabaseAsync(string name, CancellationToken token = default)
         {
             //Await this task
-            await this.Connection.ChangeDatabaseAsync(name, token);
+            await this.Connection.ChangeDatabaseAsync(name, token).ConfigureAwait(false);
         }
-        #endregion
         #endregion
     }
 }
