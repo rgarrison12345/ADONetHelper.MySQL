@@ -3,12 +3,11 @@
     <TargetFrameworks>net45;net461;net471;netstandard1.3;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.0;</TargetFrameworks>
     <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageLicenseUrl>https://github.com/rgarrison12345/ADONetHelper.MySQL/blob/master/LICENSE.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/rgarrison12345/ADONetHelper.MySQL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rgarrison12345/ADONetHelper.MySQL.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>2.3.4</Version>
+    <Version>2.3.5</Version>
     <PackageTags>MySQL MariaDb Percona Server Amazon Aurora MySQLConnector ORM ADO.NET ADO SQL .NET Database RDBMS Generic DAL ANSI</PackageTags>
     <Copyright>Copyright © Robert Garrison 2019</Copyright>
     <Authors>Robert Garrison</Authors>
@@ -27,6 +26,7 @@
     <DefineConstants>TRACE;</DefineConstants>
     <Prefer32Bit>false</Prefer32Bit>
     <OutputType>Library</OutputType>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
     <DebugSymbols>true</DebugSymbols>
