@@ -45,17 +45,17 @@ namespace ADONetHelper.MySql
 			add
 			{
 				//Get an exclusive lock first
-				lock (this.ExecuteSQL.Connection)
+				lock (ExecuteSQL.Connection)
 				{
-					this.Connection.InfoMessage += value;
+					Connection.InfoMessage += value;
 				}
 			}
 			remove
 			{
 				//Get an exclusive lock first
-				lock (this.ExecuteSQL.Connection)
+				lock (ExecuteSQL.Connection)
 				{
-					this.Connection.InfoMessage -= value;
+					Connection.InfoMessage -= value;
 				}
 			}
 		}
@@ -68,9 +68,9 @@ namespace ADONetHelper.MySql
         public int ServerThread
         {
             get
-            {
+            { 
                 //Return this back to the caller
-                return this.Connection.ServerThread;
+                return Connection.ServerThread;
             }
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace ADONetHelper.MySql
             get
             {
                 //Return this back to the caller
-                return (MySqlConnection)this.ExecuteSQL.Connection;
+                return (MySqlConnection)ExecuteSQL.Connection;
             }
         }
         #endregion
@@ -133,7 +133,7 @@ namespace ADONetHelper.MySql
         public MySqlBulkLoader GetBulkLoader()
         {
             //Return this back to the caller
-            return new MySqlBulkLoader(this.Connection);
+            return new MySqlBulkLoader(Connection);
         }
         /// <summary>
         /// Determines whether the the current <see cref="MySqlConnection"/> to mysql server is valid
@@ -142,7 +142,7 @@ namespace ADONetHelper.MySql
         public bool Ping()
         {
             //See if we can ping
-            return this.Connection.Ping();
+            return Connection.Ping();
         }
         #endregion
         #region Asynchronous        
@@ -154,7 +154,7 @@ namespace ADONetHelper.MySql
         public async Task<bool> PingAsync(CancellationToken token = default)
         {
             //Return this back to the caller
-            return await this.Connection.PingAsync(token).ConfigureAwait(false);
+            return await Connection.PingAsync(token).ConfigureAwait(false);
         }
         /// <summary>
         /// Begins the transaction asynchronously.
@@ -164,7 +164,7 @@ namespace ADONetHelper.MySql
         public async ValueTask<MySqlTransaction> BeginTransactionAsync(CancellationToken token = default)
         {
             //Await this task
-            return await this.Connection.BeginTransactionAsync(token).ConfigureAwait(false);
+            return await Connection.BeginTransactionAsync(token).ConfigureAwait(false);
         }
         /// <summary>
         /// Begins the transaction asynchronously.
@@ -175,14 +175,14 @@ namespace ADONetHelper.MySql
         public async ValueTask<MySqlTransaction> BeginTransactionAsync(IsolationLevel level, CancellationToken token = default)
         {
             //Await this task
-            return await this.Connection.BeginTransactionAsync(level, token).ConfigureAwait(false);
+            return await Connection.BeginTransactionAsync(level, token).ConfigureAwait(false);
         }
         /// <summary>
         /// Closes the connection asynchronously.
         /// </summary>
         public async Task CloseAsync()
         {
-            await this.Connection.CloseAsync().ConfigureAwait(false);
+            await Connection.CloseAsync().ConfigureAwait(false);
         }
         /// <summary>
         /// Changes the database in the current <see cref="MySqlConnection"/> context to a new database by <paramref name="name"/> asynchronously
@@ -193,7 +193,7 @@ namespace ADONetHelper.MySql
         public async Task ChangeDatabaseAsync(string name, CancellationToken token = default)
         {
             //Await this task
-            await this.Connection.ChangeDatabaseAsync(name, token).ConfigureAwait(false);
+            await Connection.ChangeDatabaseAsync(name, token).ConfigureAwait(false);
         }
         #endregion
     }

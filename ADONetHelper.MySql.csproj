@@ -19,7 +19,7 @@
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
     <Description>Extends ADONetHelper library to MySQL, MariaDb, Percona Server, Amazon Aurora, Azure Database for MySQL</Description>
-    <PackageReleaseNotes>Updating to MySqlConnector 0.59.2</PackageReleaseNotes>
+    <PackageReleaseNotes>Updating to MySqlConnector 0.60.0 and ADONetHelper 3.4.0</PackageReleaseNotes>
     <AssemblyName>ADONetHelper.MySql</AssemblyName>
     <RootNamespace>ADONetHelper.MySql</RootNamespace>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ADONetHelper.MySql.xml</DocumentationFile>
@@ -46,7 +46,7 @@
     <None Include="LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
     <None Include="README.md" PacK="true" PackagePath="README.md" />
     <None Include="CONTRIBUTING.md" PacK="true" PackagePath="CONTRIBUTING.md" />
-    <PackageReference Include="MySqlConnector" Version="0.59.2" />
-    <PackageReference Include="ADONetHelper" version="3.3.2" />
+    <PackageReference Include="MySqlConnector" Version="0.60.0" />
+    <PackageReference Include="ADONetHelper" version="3.4.0" />
   </ItemGroup>
 </Project>
