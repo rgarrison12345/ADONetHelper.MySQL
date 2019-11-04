@@ -22,6 +22,7 @@ OUT Of Or In CONNECTION With THE SOFTWARE Or THE USE Or OTHER DEALINGS In THE
 SOFTWARE*/
 #endregion
 #region Using Statements
+using ADONetHelper.Core;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Threading;
