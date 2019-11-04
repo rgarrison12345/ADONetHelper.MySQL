@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net45;net461;net471;netstandard1.3;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.0;</TargetFrameworks>
+    <TargetFrameworks>net461;net471;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.0;</TargetFrameworks>
     <EnableDefaultCompileItems>true</EnableDefaultCompileItems>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/rgarrison12345/ADONetHelper.MySQL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rgarrison12345/ADONetHelper.MySQL.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <Version>2.3.8</Version>
+    <Version>2.4.0</Version>
     <PackageTags>MySQL MariaDb Percona Server Amazon Aurora MySQLConnector ORM ADO.NET ADO SQL .NET Database RDBMS Generic DAL ANSI</PackageTags>
     <Copyright>Copyright © Robert Garrison 2019</Copyright>
     <Authors>Robert Garrison</Authors>
@@ -18,7 +18,7 @@
     <IncludeSource>true</IncludeSource>
     <IncludeSymbols>true</IncludeSymbols>
     <Description>Extends ADONetHelper library to MySQL, MariaDb, Percona Server, Amazon Aurora, Azure Database for MySQL</Description>
-    <PackageReleaseNotes>Updating to MySqlConnector 0.60.3</PackageReleaseNotes>
+    <PackageReleaseNotes>Updating to MySqlConnector 0.60.4 and ADONetHelper 4.0.0.  Removing .NET Standard 1.3 and .NET 4.5 builds</PackageReleaseNotes>
     <AssemblyName>ADONetHelper.MySql</AssemblyName>
     <RootNamespace>ADONetHelper.MySql</RootNamespace>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ADONetHelper.MySql.xml</DocumentationFile>
@@ -46,7 +46,7 @@
     <None Include="LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
     <None Include="README.md" PacK="true" PackagePath="README.md" />
     <None Include="CONTRIBUTING.md" PacK="true" PackagePath="CONTRIBUTING.md" />
-    <PackageReference Include="MySqlConnector" Version="0.60.3" />
-    <PackageReference Include="ADONetHelper" version="3.4.0" />
+    <PackageReference Include="MySqlConnector" Version="0.60.4" />
+    <PackageReference Include="ADONetHelper" version="4.0.0" />
   </ItemGroup>
 </Project>
