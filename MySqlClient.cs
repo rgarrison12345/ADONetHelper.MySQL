@@ -118,6 +118,14 @@ namespace ADONetHelper.MySql
         {
         }
         /// <summary>
+        /// Constructor to query a database using an existing <see cref="MySqlConnection"/> to initialize the <paramref name="connection"/>
+        /// </summary>
+        /// <param name="connection">An instance of <see cref="MySqlConnection"/> to use to query a database </param>
+        /// <param name="commandType">Represents how a command should be interpreted by the data provider</param>
+        public MySqlClient(MySqlConnection connection, CommandType commandType) : base(connection, commandType)
+        {
+        }
+        /// <summary>
         /// Insantiates a new instance of <see cref="MySqlClient"/> using the passed in <paramref name="connectionString"/> and <paramref name="factory"/>
         /// </summary>
         /// <param name="connectionString">Connection string to use to query a database</param>
@@ -184,17 +192,6 @@ namespace ADONetHelper.MySql
         public async Task CloseAsync()
         {
             await Connection.CloseAsync().ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Changes the database in the current <see cref="MySqlConnection"/> context to a new database by <paramref name="name"/> asynchronously
-        /// </summary>
-        /// <param name="name">The name of the database the current connection will be changing to as a <see cref="string"/></param>
-        /// <param name="token">Structure that propogates a notification that an operation should be cancelled</param>
-        /// <returns></returns>
-        public async Task ChangeDatabaseAsync(string name, CancellationToken token = default)
-        {
-            //Await this task
-            await Connection.ChangeDatabaseAsync(name, token).ConfigureAwait(false);
         }
         #endregion
     }
